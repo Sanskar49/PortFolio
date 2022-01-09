@@ -1,0 +1,624 @@
+html {
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--ff-body);
+  font-weight: var(--fw-body);
+  font-size: 1.25rem;
+  overflow-x: hidden;
+  color: #707070;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1em 0 2em;
+  margin: 0;
+  background: var(--clr-gradient);
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+}
+
+.title {
+  font-size: calc(1rem + 3vw);
+  font-family: var(--ff-title);
+  font-weight: var(--fw-title);
+  color: white;
+  text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+  clip-path: polygon(0 0, 100% 0%, 100% 60%, 0% 100%);
+  --clr-primary: #2e8bc0;
+  --clr-secondary: #d16e8d;
+  --clr-accent: #f7f7ff;
+  --clr-gradient: linear-gradient(
+    -90deg,
+    var(--clr-primary),
+    var(--clr-secondary)
+  );
+  --ff-title: bungee, sans-serif;
+  --ff-body: canada-type-gibson, sans-serif;
+  --fw-body: 300;
+  --fw-bold: 800;
+  --fw-title: 400;
+  --fw-number: 800;
+}
+
+@media screen and (max-width: 420px) {
+  .title {
+    font-size: calc(0.5rem + 2vw);
+    clip-path: polygon(0 0, 99% 0%, 99% 59%, 0% 99%);
+  }
+}
+
+.title span {
+  font-weight: var(--fw-number);
+  color: black;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 5em;
+  top: -30%;
+  z-index: -1;
+  opacity: 0.25;
+}
+.main-content {
+  font-family: sans-serif;
+  line-height: 1.45;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
+  flex: 1 1 80%;
+  min-height: 100vh;
+  width: 100%;
+}
+.first-page {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  grid-gap: 15px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 420px) {
+  .first-page {
+    grid-gap: 6px;
+    margin-left: -18px;
+  }
+}
+
+.first-page-item {
+  background: #9fa4c4;
+  color: black;
+  font-weight: 500;
+  font-family: cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  padding: 18%;
+
+  /* To fit the image properly on the div */
+  font-size: 1.5em;
+  background-size: cover;
+  background-position: center;
+  transition: all ease-in-out 300ms;
+  position: relative;
+  z-index: 10;
+}
+@media screen and (max-width: 420px) {
+  .first-page-item {
+    background: #cbc3e3;
+    padding: 7%;
+    font-size: 0.9em;
+    flex-direction: row;
+  }
+}
+
+.first-page-item:hover {
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+}
+
+.first-page-item.small {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+.first-page-item.medium {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+.first-page-item.large {
+  grid-row: span 3;
+  grid-column: span 3;
+}
+
+.first-page-item.tall {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+.first-page-item.wide {
+  grid-row: span 2;
+  grid-column: span 3;
+}
+
+.two {
+  background-image: url("portphoto.JPG");
+}
+
+.two::before {
+  content: "";
+  display: block;
+  background: #353535;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: all ease-in-out 300ms;
+  z-index: -1;
+}
+
+/* What happens after you hover the image */
+.two:hover::before {
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 420px) {
+  .two {
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  color: #312614;
+  text-align: center;
+}
+
+h1 span {
+  color: #b7032f;
+}
+h2 {
+  font-size: 1.5rem;
+  color: darkslategrey;
+}
+p {
+  margin-top: 0;
+}
+
+.container {
+  /* The lesser the width in percentage, the white space at the left from the actual content 
+    of the container becomes bigger */
+  padding: 2%;
+  width: 90%;
+  max-width: 980px;
+  /* This margin aligns everything at the center */
+  margin: 0 auto;
+}
+img {
+  max-width: 100%;
+}
+.img1 {
+  max-width: 120%;
+}
+.columns {
+  display: flex;
+  /* 1.1em margin top and bottom and 0 on the sides */
+  margin: 1.1em 0;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.col-bg {
+  background: #212614;
+  padding: 1.5em;
+  color: #fff;
+}
+/* .col-1, .col-2 and .col-3 is evenly distributing spaces for columns. */
+/* a full page is of 100% width, so for each column, it is evenly distributing some random width space. */
+
+.col-1 {
+  width: 20%;
+}
+.col-2 {
+  width: 45%;
+}
+.col-3 {
+  width: 70%;
+}
+
+.container-for-tech {
+  padding: 8%;
+  flex: 1 1 80%;
+  min-height: 100vh;
+}
+
+.tech-things {
+  display: grid;
+  padding: 7%;
+  height: 100%;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  grid-gap: 3px;
+  row-gap: 370px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  .tech-things {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    row-gap: 365px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .tech-things {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 60px;
+    row-gap: 355px;
+  }
+}
+
+.tech-things-item {
+  background: #000;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  height: 850%;
+  width: 65%;
+
+  font-size: 1.5em;
+  /* background-size: cover; */
+  background-position: center;
+  background-size: cover;
+  transition: all ease-in-out 300ms;
+  position: relative;
+  z-index: 10;
+}
+
+.Java {
+  background-image: url("java.jpg");
+}
+
+.Java::after {
+  content: "Most-Proficient";
+  display: block;
+  position: absolute;
+  background: gray;
+  padding: 0.4em 0.7em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  top: -45px;
+  left: -80px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  transform: scale(0);
+  transition: ease-out 150ms, bottom ease-out 150ms;
+}
+@media screen and (max-width: 900px) {
+  .Java::after {
+    padding: 0.3em 0.5em;
+    left: -30px;
+    top: -38px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .Java::after {
+    padding: 0.3em 0.5em;
+    left: 180px;
+  }
+}
+
+.Java:hover::after {
+  transform: scale(1);
+}
+
+.Java:hover {
+  /* transform scale gives that nasty zoom type effect which I really like */
+  transform: scale(1.2);
+}
+
+.C {
+  background-image: url("C.png");
+  position: relative;
+}
+.C::after {
+  content: "Least-Proficient";
+  display: block;
+  position: absolute;
+  background: gray;
+  padding: 0.4em 0.7em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  bottom: -45px;
+  right: -80px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  transform: scale(0);
+  transition: ease-out 150ms, bottom ease-out 150ms;
+}
+
+.C:hover::after {
+  transform: scale(1);
+}
+.C:hover {
+  transform: scale(1.2);
+}
+.Js {
+  background-image: url("Js.png");
+  position: relative;
+}
+.Js::after {
+  content: "Moderately-Proficient";
+  display: block;
+  position: absolute;
+  background: gray;
+  padding: 0.3em 0.5em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  top: -41px;
+  right: -87px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  transform: scale(0);
+  transition: ease-out 150ms, bottom ease-out 150ms;
+}
+.Js:hover::after {
+  transform: scale(1);
+}
+
+.Js:hover {
+  transform: scale(1.2);
+}
+.SpringBoot {
+  background-image: url("spring.png");
+  position: relative;
+}
+.SpringBoot::after {
+  content: "Most-Proficient";
+  display: block;
+  position: absolute;
+  background: gray;
+  padding: 0.4em 0.7em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  top: -45px;
+  left: -80px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  transform: scale(0);
+  transition: ease-out 150ms, bottom ease-out 150ms;
+}
+@media screen and (max-width: 900px) {
+  .SpringBoot::after {
+    padding: 0.3em 0.5em;
+    left: -30px;
+    top: -38px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .SpringBoot::after {
+    padding: 0.3em 0.5em;
+    left: 180px;
+  }
+}
+
+.SpringBoot:hover::after {
+  transform: scale(1);
+}
+.SpringBoot:hover {
+  transform: scale(1.2);
+}
+.Python {
+  background-image: url("python.jpg");
+  position: relative;
+}
+.C {
+  background-image: url("C.png");
+  position: relative;
+}
+.Python::after {
+  content: "Least-Proficient";
+  display: block;
+  position: absolute;
+  background: gray;
+  padding: 0.4em 0.7em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  bottom: -45px;
+  right: -80px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  transform: scale(0);
+  transition: ease-out 150ms, bottom ease-out 150ms;
+}
+.Python:hover::after {
+  transform: scale(1);
+}
+.Python:hover {
+  transform: scale(1.2);
+}
+.Rjs {
+  background-image: url("react.png");
+  position: relative;
+}
+.Rjs::after {
+  content: "Moderately-Proficient";
+  display: block;
+  position: absolute;
+  background: gray;
+  padding: 0.3em 0.5em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  top: -41px;
+  right: -87px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  transform: scale(0);
+  transition: ease-out 150ms, bottom ease-out 150ms;
+}
+.Rjs:hover::after {
+  transform: scale(1);
+}
+.Rjs:hover {
+  transform: scale(1.2);
+}
+.navbar-contact {
+  font-family: cursive;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border-radius: 50%;
+  background: black;
+  margin: 95px auto;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 400;
+  color: white;
+  transition: 0.24s 0.2s;
+}
+.navbar-contact .menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -75px;
+  left: -75px;
+  border: 150px solid transparent;
+  cursor: default;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 1.4s 0.07s;
+  z-index: -1;
+}
+
+.navbar-contact:hover .menu {
+  transition: transform 0.4s 0.08s, z-index 0s 0.5s;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.navbar-contact .menu li {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  transform-origin: 100px 100px;
+  transition: all 0.5s 0.1s;
+}
+
+.navbar-contact:hover .menu li {
+  transition: all 0.7s;
+}
+.navbar-contact .menu li a {
+  padding: 10%;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  font-size: 130%;
+  color: #f273b1;
+  transition: 0.7s;
+}
+.navbar-contact:hover .menu li:nth-child(1) {
+  transition-delay: 0.02s;
+  transform: rotate(85deg);
+}
+.navbar-contact:hover .menu li:nth-child(1) a {
+  transition-delay: 0.04s;
+  transform: rotate(635deg);
+}
+.navbar-contact:hover .menu li:nth-child(2) {
+  transition-delay: 0.04s;
+  transform: rotate(125deg);
+}
+.navbar-contact:hover .menu li:nth-child(2) a {
+  transition-delay: 0.08s;
+  transform: rotate(595deg);
+}
+.navbar-contact:hover .menu li:nth-child(3) {
+  transition-delay: 0.06s;
+  transform: rotate(165deg);
+}
+.navbar-contact:hover .menu li:nth-child(3) a {
+  transition-delay: 0.12s;
+  transform: rotate(555deg);
+}
+.navbar-contact:hover .menu li:nth-child(4) {
+  transition-delay: 0.08s;
+  transform: rotate(205deg);
+}
+.navbar-contact:hover .menu li:nth-child(4) a {
+  transition-delay: 0.16s;
+  transform: rotate(515deg);
+}
+.navbar-contact:hover .menu li:nth-child(5) {
+  transition-delay: 0.01s;
+  transform: rotate(245deg);
+}
+.navbar-contact:hover .menu li:nth-child(5) a {
+  transition-delay: 0.2s;
+  transform: rotate(475deg);
+}
+.navbar-contact:hover .menu li:nth-child(6) {
+  transition-delay: 0.12s;
+  transform: rotate(285deg);
+}
+.navbar-contact:hover .menu li:nth-child(6) a {
+  transition-delay: 0.24s;
+  transform: rotate(435deg);
+}
+.navbar-contact:hover .menu li:nth-child(7) {
+  transition-delay: 0.14s;
+  transform: rotate(325deg);
+}
+.navbar-contact:hover .menu li:nth-child(7) a {
+  transition-delay: 0.28s;
+  transform: rotate(395deg);
+}
+.navbar-contact:hover .menu li:nth-child(8) {
+  transition-delay: 0.16s;
+  transform: rotate(365deg);
+}
+.navbar-contact:hover .menu li:nth-child(8) a {
+  transition-delay: 0.32s;
+  transform: rotate(355deg);
+}
+.navbar-contact:hover .menu li:nth-child(9) {
+  transition-delay: 0.18s;
+  transform: rotate(405deg);
+}
+.navbar-contact:hover .menu li:nth-child(9) a {
+  transition-delay: 0.36s;
+  transform: rotate(315deg);
+}
+a,
+a:hover {
+  text-decoration: none;
+}
